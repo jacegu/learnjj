@@ -57,31 +57,32 @@ There are a couple things that I want to research here:
 #### How to pull `main` (or `trunk` or _whatever_)
 
 > [!TIP]
-> The relevant tip for this can be found [in the jj docs](https://martinvonz.github.io/jj/latest/github/#updating-the-repository). In there there is also a useful reference to a GitHub issue that may change how this is done.
+> The relevant tip for this can be found [in the jj docs](https://martinvonz.github.io/jj/latest/github/#updating-the-repository).
+> There is also a useful reference to a GitHub issue that may change how this is done.
 
 In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
+
 1. Fetch the changes:
-```
-jj git fetch
-```
-, This is the equivalent to `git fetch`. If you are anything like me, you will most likely want to do it for only for the branch you care about
-```
-jj git fetch -b main
-```
+    ```
+    jj git fetch
+    ```
+    This is the equivalent to `git fetch`. If you are anything like me, you will most likely want to do it for only for the branch you care about
+    ```
+    jj git fetch -b main
+    ```
 2. Once you have the updated information about the `main` branch at the origin, you need to rebase your current branch on top of your local `main` "reference" (a.k.a _bookmark_).
-```
-jj rebase -d main
-```
+    ```
+    jj rebase -d main
+    ```
 
-<details>
-<summary>How does this work</summary>
-s
-The best way to understand this is to read through `jj rebase --help`.
-The important bits here are:
-1. When not specifying `-b`, `-s` or `-r`, which defines the _what_ to rebase, the default value is `-b @`, which is the current branch.
-2. In the context of rebase, the _branch_ of a commit is, the commit iself, its descendants, and all the ancestors it doesn't have in common with the destination commit.
-
-</details>
+    <details>
+    <summary>🤨 How does this even work?</summary>
+    
+    The best way to understand this is to read through `jj rebase --help`.
+    The important bits here are:
+    - When not specifying `-b`, `-s` or `-r`, which defines the _what_ to rebase, the default value is `-b @`, which is the current branch.
+    - In the context of rebase, the _branch_ of a commit is, the commit iself, its descendants, and all the ancestors it doesn't have in common with the destination commit.
+    </details>
 
 
 ### Pushing
