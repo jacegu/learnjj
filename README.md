@@ -44,3 +44,16 @@ As I was testing this with a bigger repo (I cloned it using `jj git clone`), I w
 There are a couple things that I want to research here:
 1. There is a way to customize the structure of the log via templates. I will likely want more or less information in there in the future. For now, I want to try to get used to the default flavor.
 2. The -r option I discussed earlier actually has a default, that explains the behavior it has by default. I would like to understand how to tweak it.
+
+#### Creating commits
+TBD
+
+#### Creating branches
+
+#### Pushing
+
+#### Pulling 
+
+#### Rewriting history
+
+
