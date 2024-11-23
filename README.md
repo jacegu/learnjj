@@ -8,6 +8,7 @@ This is @jacegu trying jj for the first time.
 ### Written
 - [The official jj documentatiion](https://martinvonz.github.io/jj/latest/)
 - [The tutorial that Steve Klabnk wrote](https://steveklabnik.github.io/jujutsu-tutorial/sharing-code/remotes.html)
+- [A random article I found online](https://reasonablypolymorphic.com/blog/jj-strategy/index.html)
 
 ### Talks
 - [Intro to jj in the GitButler's Bits and Booze podcast](https://www.youtube.com/watch?v=dwyMlLYIrPk)
@@ -17,6 +18,7 @@ This is @jacegu trying jj for the first time.
 ## Basic stuff
 
 This will be more or less a journey from Git to jj, and trying to puzzle things together.
+
 
 ## First steps
 
@@ -45,15 +47,62 @@ There are a couple things that I want to research here:
 1. There is a way to customize the structure of the log via templates. I will likely want more or less information in there in the future. For now, I want to try to get used to the default flavor.
 2. The -r option I discussed earlier actually has a default, that explains the behavior it has by default. I would like to understand how to tweak it.
 
-#### Creating commits
-TBD
-
-#### Creating branches
-
-#### Pushing
-
-#### Pulling 
-
-#### Rewriting history
 
 
+
+
+
+### Pulling 
+
+#### How to pull `main` (or `trunk` or _whatever_)
+
+> [!TIP]
+> The relevant tip for this can be found [in the jj docs](https://martinvonz.github.io/jj/latest/github/#updating-the-repository). In there there is also a useful reference to a GitHub issue that may change how this is done.
+
+In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
+1. Fetch the changes:
+```
+jj git fetch
+```
+, This is the equivalent to `git fetch`. If you are anything like me, you will most likely want to do it for only for the branch you care about
+```
+jj git fetch -b main
+```
+2. Once you have the updated information about the `main` branch at the origin, you need to rebase your current branch on top of your local `main` "reference" (a.k.a _bookmark_).
+```
+jj rebase -d main
+```
+
+<details>
+<summary>How does this work</summary>
+s
+The best way to understand this is to read through `jj rebase --help`.
+The important bits here are:
+1. When not specifying `-b`, `-s` or `-r`, which defines the _what_ to rebase, the default value is `-b @`, which is the current branch.
+2. In the context of rebase, the _branch_ of a commit is, the commit iself, its descendants, and all the ancestors it doesn't have in common with the destination commit.
+
+</details>
+
+
+### Pushing
+
+
+### Branching
+
+Coming from Git-defined workflow, branching is just how everything starts.
+
+
+### Committing
+
+
+### Rewriting history
+
+
+
+## Advanced stuff
+
+### Signing commits
+Follow: https://github.com/martinvonz/jj/blob/main/docs/config.md#commit-signing
+
+### Revset language
+See: https://martinvonz.github.io/jj/latest/revsets/
