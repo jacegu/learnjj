@@ -45,10 +45,9 @@ There are a couple things that I want to research here:
 1. There is a way to customize the structure of the log via templates. I will likely want more or less information in there in the future. For now, I want to try to get used to the default flavor.
 2. The -r option I discussed earlier actually has a default, that explains the behavior it has by default. I would like to understand how to tweak it.
 
-#### Creating commits
-TBD
+#### Committing
 
-#### Creating branches
+#### Branching
 
 #### Pushing
 
@@ -56,4 +55,10 @@ TBD
 
 #### Rewriting history
 
+## Advanced stuff
 
+#### Signing commits
+Follow: https://github.com/martinvonz/jj/blob/main/docs/config.md#commit-signing
+
+#### Revset language
+See: https://martinvonz.github.io/jj/latest/revsets/
