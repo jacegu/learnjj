@@ -20,14 +20,14 @@ This will be more or less a journey from Git to jj, and trying to puzzle things 
 
 ## First steps
 
-#### Cloning a repo
+### Cloning a repo
 I actually created this repo from GitHub directly, then I wanted to clone it:
 
 ```
 jj git clone git@github.com:jacegu/learnjj.git
 ```
 
-#### Seeing the log
+### Seeing the log
 
 I feel blind without this:
 ```
