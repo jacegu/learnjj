@@ -41,16 +41,14 @@ I actually set the config to jj without modifiers to become just an alias to jj 
 jj config set --user ui.default-command log
 ```
 
-As I was testing this with a bigger repo (I cloned it using `jj git clone`), I was surprised bythe time it took (8 minutes!!), but also by the fact that the log wasn't showing anything, only the HEAD. In order to see everything I had to run `jj log -r 'all()'`.
-
-There are a couple things that I want to research here:
-1. There is a way to customize the structure of the log via templates. I will likely want more or less information in there in the future. For now, I want to try to get used to the default flavor.
-2. The -r option I discussed earlier actually has a default, that explains the behavior it has by default. I would like to understand how to tweak it.
-
-
-
-
-
+By default `jj` shows quite a short log. If you want the full picture you have to:
+```
+jj log -r 'all()'
+```
+Then you can further trim this with the number of revisions you want to see (20 in this example):
+```
+jj log -r 'all()' -n 20
+```
 
 ### Pulling 
 
