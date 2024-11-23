@@ -83,7 +83,8 @@ In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
     </details>
 
 
-### Pushing
+
+
 
 
 ### Branching
@@ -93,6 +94,20 @@ Coming from Git-defined workflow, branching is just how everything starts.
 
 ### Committing
 
+
+### Pushing
+
+Pushing changes to an origin will require two things:
+
+1. Updating the bookmark to the revision that you want to push to the remote (remember: `jj` won't advance bookmarks as you add changes). Assuming that you want to push all the changes in your working copy:
+    ```
+    jj boomark set the-boomkark-name
+    ```
+2. Push a-la-git.
+    ```
+    jj git push -b the-bookmark-name
+    ```
+    If you don't specify the bookmark, you will push all the bookmarks in the ancestors of your working copy.
 
 ### Rewriting history
 
