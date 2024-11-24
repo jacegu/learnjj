@@ -76,7 +76,7 @@ In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
     <details>
     <summary>🤨 How does this even work?</summary>
     
-    The best way to understand this is to read through `jj rebase --help`.
+    The best way to understand this is to read through [`jj rebase --help`](https://martinvonz.github.io/jj/latest/cli-reference/#jj-rebase).
     The important bits here are:
     - When not specifying `-b`, `-s` or `-r`, which defines the _what_ to rebase, the default value is `-b @`, which is the current branch.
     - In the context of rebase, the _branch_ of a commit is, the commit iself, its descendants, and all the ancestors it doesn't have in common with the destination commit.
@@ -101,13 +101,29 @@ Pushing changes to an origin will require two things:
 
 1. Updating the bookmark to the revision that you want to push to the remote (remember: `jj` won't advance bookmarks as you add changes). Assuming that you want to push all the changes in your working copy:
     ```
-    jj boomark set the-boomkark-name
+    jj boomark set the-boomark-name
     ```
+    <details>
+    <summary>🤨 How does this even work?</summary>
+    
+    What you are doing here is updating a bookmark to point to your working copy. Alternatively, you could specify a revision for your bookmark by running `jj bookmark set the-bookmark-name -r <REVISION>`. See [`jj bookmark --help`](https://martinvonz.github.io/jj/latest/cli-reference/#jj-bookmark) for more information on this.
+    </details>
 2. Push a-la-git.
     ```
     jj git push -b the-bookmark-name
     ```
-    If you don't specify the bookmark, you will push all the bookmarks in the ancestors of your working copy.
+    If you don't specify the bookmark, you will push all the bookmarks in the ancestors of your working copy. 
+
+    <details>
+    <summary>🤨 How does this even work?</summary>
+    
+    To better understand how this works see [`jj git push --help`](https://martinvonz.github.io/jj/latest/cli-reference/#jj-git-push).
+    </details>
+
+
+
+
+
 
 ### Rewriting history
 
