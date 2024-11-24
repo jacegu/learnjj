@@ -83,13 +83,33 @@ In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
     </details>
 
 
-
-
-
-
 ### Branching
 
-Coming from Git-defined workflow, branching is just how everything starts.
+#### What's a branch, anyway?
+
+
+
+#### Named branches
+
+Coming from Git-defined workflow, branching is just how everything starts. In `jj` there are no such things as branches. It has an analog concept called [bookmarks](https://martinvonz.github.io/jj/latest/bookmarks/) instead. 
+
+> [!IMPORTANT]  
+> The most important difference to know right off the bat is that, where Git will advance the branch reference as you add commits to it, Jujutsu will not. You boomark will stay wherever you define it. You are responsible for moving it to the revision you want _explicitly_. 
+
+
+To bookmark a revision (you can also read this as _giving a giving a revision a name_), you do:
+```
+jj boomark set <NAME>
+```
+<details>
+<summary>🤨 How does this even work?</summary>
+
+By default, this will set the bookmark to your working copy. You can also provide an specific revision when doing it. Note that if the revision you are targeting is not a child of the revision the bookmark currently points to, you will have to provide the extra parameter `-B` or `--allow-backwards`. 
+
+Note that if the bookmark already exists, what we are doing here is moving the bookmark to a different revision.
+
+See [`jj bookmark set --help`](https://martinvonz.github.io/jj/latest/cli-reference/#jj-bookmark-set) for more details.
+</details> 
 
 
 ### Committing
