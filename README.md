@@ -75,7 +75,7 @@ In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
 
     <details>
     <summary>🤨 How does this even work?</summary>
-    
+
     The best way to understand this is to read through [`jj rebase --help`](https://martinvonz.github.io/jj/latest/cli-reference/#jj-rebase).
     The important bits here are:
     - When not specifying `-b`, `-s` or `-r`, which defines the _what_ to rebase, the default value is `-b @`, which is the current branch.
@@ -85,11 +85,62 @@ In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
 
 ### Branching
 
+To create a new branch you just need to create a new revision specifying what the parent is:
+
+```
+jj new @--
+``
+
+<details>
+<summary>🤨 How does this even work?</summary>
+
 #### What's a branch, anyway?
+> [!TIP]
+> A branch happens when you have 2 commits with the same immediate ancestor.
+> ```
+> B C
+> |/
+> A
+> ```
 
+In Jujutsu, when you create a new commit you provide the parent you want for it. If you don't specify anything the ancestor will always be your working copy. 
 
+```
+jj new
+```
 
-#### Named branches
+Provided this is your current status (`B` is your working copy):
+```
+@B
+ |
+ A
+```
+
+When you `jj new`, you will end up with:
+```
+@C
+ |
+ B
+ |
+ A
+```
+
+However, you can provide the parent you want:
+
+```
+jj new A
+```
+
+Then you would end up with a branch:
+
+```
+B @C
+|/
+A
+```
+</details>
+
+#### Naming branches
 
 Coming from Git-defined workflow, branching is just how everything starts. In `jj` there are no such things as branches. It has an analog concept called [bookmarks](https://martinvonz.github.io/jj/latest/bookmarks/) instead. 
 
