@@ -85,11 +85,12 @@ In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
 
 ### Branching
 
+#### Creating branches
 To create a new branch you just need to create a new revision specifying what the parent is:
 
 ```
 jj new @--
-``
+```
 
 <details>
 <summary>🤨 How does this even work?</summary>
