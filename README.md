@@ -148,7 +148,7 @@ Every revision has an identifier, that is not different in `jj`. When you want t
 > [!IMPORTANT]  
 > The most important difference to know right off the bat is that, where Git will advance the branch reference as you add commits to it, Jujutsu will not. You boomark will stay wherever you defined it. You are responsible for moving it to the revision you want it to point to _explicitly_. 
 
-To bookmark a revision (you can also read this as _giving a giving a revision a name_), you do:
+To bookmark a revision (you can also read this as _giving a revision a name_), you do:
 ```
 jj boomark set <NAME>
 ```
