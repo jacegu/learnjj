@@ -96,13 +96,13 @@ jj new <PARENT-REVISION>
 <summary>🤨 How does this even work?</summary>
 
 ##### What's a branch, anyway?
-> [!TIP]
-> A branch happens when you have 2 commits with the same immediate ancestor.
-> ```
-> B C
-> |/
-> A
-> ```
+
+A branch happens when you have 2 commits with the same immediate ancestor.
+```
+ B C
+ |/
+ A
+```
 
 In Jujutsu, when you create a new commit you provide the parent you want for it. If you don't specify anything the ancestor will always be your working copy. 
 
