@@ -86,16 +86,16 @@ In `jj` there is no equivanet to `git pull`. Instead we need to do 2 things:
 ### Branching
 
 #### Creating branches
-To create a new branch you just need to create a new revision specifying what the parent is:
 
+Coming from a Git workflow, branching is just how everything starts. In `jj` there is no such things as branches. You can have revisions that share a parent, which effectively creates a branch. To create a new branch you just need to create a new revision specifying what the parent is, using:
 ```
-jj new @--
+jj new <PARENT-REVISION>
 ```
 
 <details>
 <summary>🤨 How does this even work?</summary>
 
-#### What's a branch, anyway?
+##### What's a branch, anyway?
 > [!TIP]
 > A branch happens when you have 2 commits with the same immediate ancestor.
 > ```
@@ -143,11 +143,10 @@ A
 
 #### Naming branches
 
-Coming from Git-defined workflow, branching is just how everything starts. In `jj` there are no such things as branches. It has an analog concept called [bookmarks](https://martinvonz.github.io/jj/latest/bookmarks/) instead. 
+Every revision has an identifier, that is not different in `jj`. When you want to give a human-friendly name to a revision you use [bookmarks](https://martinvonz.github.io/jj/latest/bookmarks/). This is how you name your branches in Jujutsu.
 
 > [!IMPORTANT]  
-> The most important difference to know right off the bat is that, where Git will advance the branch reference as you add commits to it, Jujutsu will not. You boomark will stay wherever you define it. You are responsible for moving it to the revision you want _explicitly_. 
-
+> The most important difference to know right off the bat is that, where Git will advance the branch reference as you add commits to it, Jujutsu will not. You boomark will stay wherever you defined it. You are responsible for moving it to the revision you want it to point to _explicitly_. 
 
 To bookmark a revision (you can also read this as _giving a giving a revision a name_), you do:
 ```
